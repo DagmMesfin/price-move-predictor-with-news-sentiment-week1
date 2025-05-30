@@ -71,7 +71,7 @@ pip install -r requirements.txt
 │   └── settings.json
 ├── .github/
 │   └── workflows/
-│       └── unittests.yml
+│       └── ci.yml
 ├── notebooks/
 │   ├── __init__.py
 │   └── EDA.ipynb
