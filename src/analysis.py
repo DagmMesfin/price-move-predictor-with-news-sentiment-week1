@@ -1,7 +1,4 @@
-"""
-Analysis class - contains all analysis functions
-Extracted directly from the notebook cells
-"""
+"""Analysis class - contains all analysis functions"""
 
 import pandas as pd
 import re
@@ -9,20 +6,15 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 
 class Analysis:
-    """
-    Class containing all analysis functions
-    Each method replicates exact functionality from notebook cells
-    """
+    """Class containing all analysis functions"""
 
     def __init__(self):
-        """Initialize the Analysis class"""
         pass
 
     # Publisher Analysis Methods
     def analyze_publisher_frequency(self, df, top_n=10):
         """
         Analyze publisher frequency
-        Exact copy from notebook cell
         """
         # Publisher frequency analysis
         publisher_counts = df['publisher'].value_counts()
@@ -33,7 +25,6 @@ class Analysis:
     def extract_email_publishers(self, df):
         """
         Extract publishers that appear to be email addresses
-        Exact copy from notebook cell
         """
         # Filter publishers that look like email addresses
         email_publishers = df['publisher'].dropna().astype(str)
@@ -50,7 +41,6 @@ class Analysis:
     def extract_email_domains(self, email_publishers):
         """
         Extract domains from email publishers
-        Exact copy from notebook cell
         """
         # Extract domains using regex
         email_domains = email_publishers.str.extract(r'@([A-Za-z0-9.-]+)', expand=False).dropna()
@@ -64,7 +54,6 @@ class Analysis:
     def get_organizational_domains(self, email_domains, top_n=10):
         """
         Get organizational email domains (excluding personal domains)
-        Exact copy from notebook cell
         """
         # Define personal email domains to filter out
         personal_domains = {
@@ -86,7 +75,6 @@ class Analysis:
     def analyze_keyword_frequency(self, df, ngram_range=(2, 3), max_features=30, stop_words='english'):
         """
         Analyze keyword frequency using n-grams
-        Exact copy from notebook cell
         """
         # Keyword frequency analysis using n-grams
         headlines = df['headline'].fillna("")
@@ -114,7 +102,6 @@ class Analysis:
     def analyze_headline_patterns(self, df):
         """
         Analyze patterns in headlines
-        Exact copy from notebook cell
         """
         headlines = df['headline'].fillna("").astype(str)
 
@@ -139,7 +126,6 @@ class Analysis:
     def analyze_daily_patterns(self, df):
         """
         Analyze daily publication patterns
-        Exact copy from notebook cell
         """
         # Daily publication count analysis
         daily_counts = df.groupby('publish_day').size()
@@ -160,7 +146,6 @@ class Analysis:
     def analyze_hourly_patterns(self, df):
         """
         Analyze hourly publication patterns
-        Exact copy from notebook cell
         """
         # Hourly publication pattern analysis
         hourly_counts = df['hour'].value_counts().sort_index()
@@ -182,7 +167,6 @@ class Analysis:
     def analyze_weekly_patterns(self, df):
         """
         Analyze weekly publication patterns (day of week)
-        Exact copy from notebook cell
         """
         # Weekly pattern analysis
         weekly_counts = df['day_of_week'].value_counts()

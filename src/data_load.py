@@ -1,25 +1,17 @@
-"""
-Data loading class - contains all data loading and preprocessing functions
-Extracted directly from the notebook cells
-"""
+"""Data loading class - contains all data loading and preprocessing functions""" 
 
 import pandas as pd
 
 
 class DataLoad:
-    """
-    Class containing all data loading and preprocessing functions
-    Each method replicates exact functionality from notebook cells
-    """
+    """Class containing all data loading and preprocessing functions"""
     
     def __init__(self):
-        """Initialize the DataLoad class"""
         self.df = None
     
     def load_dataset(self, file_path='data/raw_analyst_ratings.csv'):
         """
         Load dataset (adjust the path as needed)
-        Exact copy from notebook cell
         """
         self.df = pd.read_csv(file_path)
         return self.df
@@ -27,7 +19,6 @@ class DataLoad:
     def display_dataset_overview(self, df=None):
         """
         Display dataset overview and descriptive statistics
-        Exact copy from notebook cell
         """
         if df is None:
             df = self.df
@@ -41,7 +32,6 @@ class DataLoad:
     def analyze_headline_length(self, df=None):
         """
         Headline length analysis
-        Exact copy from notebook cell
         """
         if df is None:
             df = self.df
@@ -58,7 +48,6 @@ class DataLoad:
     def prepare_time_features(self, df=None):
         """
         Prepare time-based features from the date column
-        Exact copy from notebook cell
         """
         if df is None:
             df = self.df
