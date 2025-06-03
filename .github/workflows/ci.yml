@@ -4,7 +4,12 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.12.10']
+    
+    runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v4
@@ -12,12 +17,25 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12.10'
+          python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies
+      - name: Install dependencies (Ubuntu)
+        if: runner.os == 'Linux'
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt 
+          # Install TA-Lib dependencies for Linux
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+          sudo apt-get install -y ta-lib
+          # Install requirements without the Windows wheel
+          pip install $(grep -v "win_amd64.whl" requirements.txt)
+
+      - name: Install dependencies (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          python -m pip install --upgrade pip
+          # Install requirements with the Windows wheel
+          pip install -r requirements.txt
 
       - name: Run tests
         run: python --version
