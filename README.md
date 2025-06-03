@@ -15,7 +15,7 @@ The goal is to help **Nova Financial Solutions** enhance its predictive analytic
 
 ---
 
-## Tasks & Deliverables
+## ✅ Tasks & Deliverables
 
 ### Task 1: Git & Environment Setup
 
@@ -27,7 +27,27 @@ The goal is to help **Nova Financial Solutions** enhance its predictive analytic
   - Headline length distributions
   - Publisher activity patterns
   - News volume over time
-  - Early keyword exploration (topic modeling)
+  - Topic modeling and named entity extraction
+
+### Task 2: Quantitative Analysis Using PyNance
+
+- Fetched stock price data using `yfinance`.
+- Switched from TA-Lib to **PyNance** due to system dependency issues.
+- Calculated technical indicators such as:
+  - Simple and exponential moving averages
+  - Relative Strength Index (RSI)
+  - Moving Average Convergence Divergence (MACD)
+- Visualized indicators in relation to stock price movement (saved in `outputs/` folder).
+- Organized work on the `task-2` branch with commits and PR.
+
+### Task 3: Correlation Between Sentiment and Stock Movement
+
+- Used `NLTK` to assign sentiment polarity scores to headlines.
+- Aggregated sentiment scores daily and aligned with stock return data.
+- Computed daily stock returns from closing prices.
+- Merged news sentiment and stock return datasets by date and ticker.
+- Performed Pearson correlation analysis to evaluate the relationship between sentiment and returns.
+- Prepared visualizations such as scatter plots and correlation heatmaps.
 
 ---
 

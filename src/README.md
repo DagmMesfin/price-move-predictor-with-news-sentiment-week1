@@ -2,6 +2,42 @@
 
 This project is a modular Python-based data processing and analysis pipeline.
 
+## Folder Structure
+
+```
+src/
+├── __init__.py
+├── financial_news/
+│   ├── data_load.py
+│   ├── analysis.py
+│   └── visualization.py
+└── stock/
+    ├── analysis.py
+    └── visualization.py
+```
+
+## Key Classes
+
+### financial_news/data_load.py
+
+The `DataLoad` class contains methods for loading and preprocessing the financial news dataset.
+
+### financial_news/analysis.py
+
+The `Analysis` class contains methods for analyzing the financial news dataset.
+
+### financial_news/visualization.py
+
+The `Visualization` class contains methods for visualizing the financial news dataset.
+
+### stock/analysis.py
+
+The `StockAnalysis` class contains methods for analyzing stock price data.
+
+### stock/visualization.py
+
+The `StockVisualization` class contains methods for visualizing stock price data.
+
 
 ## Benefits of Class-Based Structure
 
